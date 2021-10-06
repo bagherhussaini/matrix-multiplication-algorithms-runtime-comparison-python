@@ -146,7 +146,7 @@ def strassen(a, b):
                ] = p5 + p4 - p2 + p6
         result[:int(len(result) / 2), int(len(result) / 2):] = p1 + p2
         result[int(len(result) / 2):, :int(len(result) / 2)] = p3 + p4
-        result[int(len(result) / 2):, int(len(result) / 2)               :] = p5 + p1 - p3 - p7
+        result[int(len(result) / 2):, int(len(result) / 2):] = p5 + p1 - p3 - p7
         return result
 
 
