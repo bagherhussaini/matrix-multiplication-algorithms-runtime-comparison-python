@@ -150,5 +150,5 @@ def strassen(a, b):
         return result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     log = main()
