@@ -1,4 +1,4 @@
-import time
+from time import time
 import numpy as np
 import pandas as pd
 import xlsxwriter
@@ -18,30 +18,25 @@ def main():
         b = np.random.uniform(low=-500000, high=500000, size=(size, size))
 
         start_time = 0
-        start_time = time.time()
+        start_time = time()
         result = normal_multiplication(a, b)
-        normal_multiplication_duration = time.time() - start_time
-        normal_multiplication_duration_db.append(
-            normal_multiplication_duration)
+        normal_multiplication_duration = time() - start_time
+        normal_multiplication_duration_db.append(normal_multiplication_duration)
 
         start_time = 0
-        start_time = time.time()
+        start_time = time()
         result = divide_and_conquer(a, b)
-        divide_and_conquer_duration = time.time() - start_time
+        divide_and_conquer_duration = time() - start_time
         divide_and_conquer_duration_db.append(divide_and_conquer_duration)
 
         start_time = 0
-        start_time = time.time()
+        start_time = time()
         result = strassen(a, b)
-        strassen_duration = time.time() - start_time
+        strassen_duration = time() - start_time
         strassen_duration_db.append(strassen_duration)
 
-        tmp = pd.Series([
-            size,
-            normal_multiplication_duration,
-            divide_and_conquer_duration,
-            strassen_duration
-        ], index=['N', 'Normal_Multiplication_Time', 'Divide_and_Conquer_Time', 'Strassen_Time'])
+        tmp = pd.Series([size, normal_multiplication_duration, divide_and_conquer_duration, strassen_duration],
+                        index=['N', 'Normal_Multiplication_Time', 'Divide_and_Conquer_Time', 'Strassen_Time'])
         log = log.append(tmp, ignore_index=True)
         log.to_csv('time-complexity.csv', index=False)
 
