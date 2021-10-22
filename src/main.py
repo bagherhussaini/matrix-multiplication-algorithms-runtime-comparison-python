@@ -7,8 +7,7 @@ import xlsxwriter
 def main():
     n = [2 ** i for i in range(2, 10)]
     log = pd.DataFrame(index=[],
-                       columns=['N', 'Normal_Multiplication_Time', 'Divide_and_Conquer_Time',
-                                'Strassen_Time'])
+                       columns=['N', 'Normal_Multiplication_Time', 'Divide_and_Conquer_Time', 'Strassen_Time'])
 
     normal_multiplication_duration_db = []
     divide_and_conquer_duration_db = []
@@ -142,8 +141,7 @@ def strassen(a, b):
         p7 = strassen(a11 - a21, b11 + b12)
 
         result = np.zeros((n, n))
-        result[:int(len(result) / 2), :int(len(result) / 2)
-               ] = p5 + p4 - p2 + p6
+        result[:int(len(result) / 2), :int(len(result) / 2)] = p5 + p4 - p2 + p6
         result[:int(len(result) / 2), int(len(result) / 2):] = p1 + p2
         result[int(len(result) / 2):, :int(len(result) / 2)] = p3 + p4
         result[int(len(result) / 2):, int(len(result) / 2):] = p5 + p1 - p3 - p7
